@@ -10,8 +10,4 @@ class Bubble
     @created_at = attrs[:created_at]
   end
 
-  def created_at
-    @created_at = Time.now
-  end
-
 end

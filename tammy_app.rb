@@ -3,17 +3,24 @@ require_relative 'bubble'
 puts "What is your username?"
 username = gets.chomp.downcase
 
-puts "What would you like to post?"
-body = gets.chomp
+array_of_bubbles = []
 
-answers = {
-  username: username,
-  body: body,
-}
+while true
+  puts "What would you like to post? type exit or done to exit"
+  body = gets.chomp
+  break if body == "exit" || body == "done"
 
-b = Bubble.new(answers)
-b.created_at.inspect
+  answers = {
+    username: username,
+    body: body,
+    created_at: Time.now
+  }
 
-array_of_bubbles = [b]
+  b = Bubble.new(answers)
 
-puts array_of_bubbles.inspect
+  array_of_bubbles.push(b)
+
+  array_of_bubbles.each do |object|
+    puts "#{object.username.capitalize} created a post \"#{object.body}\" at #{object.created_at}"
+  end
+end
