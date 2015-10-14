@@ -18,7 +18,7 @@ while true
 
   b = Bubble.new(answers)
 
-  array_of_bubbles.push(b)
+  array_of_bubbles << b
 
   array_of_bubbles.each do |object|
     puts "#{object.username.capitalize} created a post \"#{object.body}\" at #{object.created_at}"
