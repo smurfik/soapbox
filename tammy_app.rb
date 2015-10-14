@@ -11,9 +11,9 @@ while true
   break if body == "exit" || body == "done"
 
   answers = {
-    username: username,
-    body: body,
-    created_at: Time.now
+    username:    username,
+    body:        body,
+    created_at:  Time.now
   }
 
   b = Bubble.new(answers)
