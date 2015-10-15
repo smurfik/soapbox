@@ -13,7 +13,7 @@ while true
   answers = {
     username:    username,
     body:        body,
-    created_at:  Time.now.strftime("%b %e, %l:%M %p")
+    created_at:  Time.now.strftime("%m-%e-%y %H:%M")
   }
 
   b = Bubble.new(answers)
@@ -26,7 +26,7 @@ while true
   end
 end
 
-everything = Dir.glob("/Users/tamarapop/code_builders/practice/trees/*")
+everything = Dir.glob("/Users/tamarapop/Dropbox/SoapBox/*")
 
 everything.each do |element|
   the_file = File.open(element)

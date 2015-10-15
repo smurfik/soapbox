@@ -15,8 +15,8 @@ class Bubble
   end
 
   def write_file
-#     File.open("/Users/tamarapop/Dropbox/SoapBox/#{@body}", 'w') do |file|
-    File.open("/Users/tamarapop/code_builders/practice/trees/#{@body}", 'w') do |file|
+    File.open("/Users/tamarapop/Dropbox/SoapBox/#{@body}", 'w') do |file|
+#     File.open("/Users/tamarapop/code_builders/practice/trees/#{@body}", 'w') do |file|
       file << "#{@username.capitalize}"
     end
   end
