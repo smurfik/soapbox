@@ -13,7 +13,7 @@ while true
   answers = {
     username:    username,
     body:        body,
-    created_at:  Time.now
+    created_at:  Time.now.strftime("%m/%d/%Y")
   }
 
   b = Bubble.new(answers)
@@ -21,6 +21,6 @@ while true
   array_of_bubbles << b
 
   array_of_bubbles.each do |object|
-    puts "#{object.username.capitalize} created a post \"#{object.body}\" at #{object.created_at}"
+    puts object.formatted_string
   end
 end

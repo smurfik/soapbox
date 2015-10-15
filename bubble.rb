@@ -10,4 +10,8 @@ class Bubble
     @created_at = attrs[:created_at]
   end
 
+  def formatted_string
+    "#{@username.capitalize} created a post \"#{@body}\" at #{@created_at}"
+  end
+
 end
