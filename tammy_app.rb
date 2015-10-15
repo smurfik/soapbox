@@ -1,5 +1,4 @@
 require_relative 'bubble'
-require "colorize"
 
 puts "What is your username?"
 username = gets.chomp.downcase
@@ -14,7 +13,7 @@ while true
   answers = {
     username:    username,
     body:        body,
-    created_at:  Time.now.strftime("%m/%d/%Y")
+    created_at:  Time.now.strftime("%b %e, %l:%M %p")
   }
 
   b = Bubble.new(answers)
@@ -30,19 +29,13 @@ end
 everything = Dir.glob("/Users/tamarapop/code_builders/practice/trees/*")
 
 everything.each do |element|
-  nb = Bubble.new(posts_created_at: element,
-                 body_of_post: element,
-                 bubble_of_post: element)
-  # puts nb.inspect
-  nb.posts_created_at
-  nb.bubble_of_post
+  the_file = File.open(element)
+  answers = {
+    username: the_file.read,
+    body: File.basename(element),
+    created_at: the_file.birthtime.strftime("%m-%e-%y %H:%M")
+  }
+  nb = Bubble.new(answers)
   puts nb.formatted_string
+  the_file.close
 end
-
-#
-# everything.each do |element|
-#   e = element.split("/")
-#   puts ee = e.last.inspect
-#   puts File.read("#{everything}")
-# end
-
