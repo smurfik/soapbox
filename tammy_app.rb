@@ -1,4 +1,5 @@
 require_relative 'bubble'
+require "colorize"
 
 puts "What is your username?"
 username = gets.chomp.downcase
@@ -22,5 +23,6 @@ while true
 
   array_of_bubbles.each do |object|
     puts object.formatted_string
+    object.write_file
   end
 end
