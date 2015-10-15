@@ -26,7 +26,8 @@ while true
   end
 end
 
-everything = Dir.glob("/Users/tamarapop/Dropbox/SoapBox/*")
+# everything = Dir.glob("/Users/tamarapop/Dropbox/SoapBox/*")
+everything = Dir.glob("/Users/tamarapop/code_builders/practice/trees/*")
 
 everything.each do |element|
   the_file = File.open(element)
