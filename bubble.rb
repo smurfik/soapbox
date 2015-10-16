@@ -1,3 +1,4 @@
+require "colorize"
 class Bubble
 
   attr_accessor :username,
@@ -11,7 +12,7 @@ class Bubble
   end
 
   def formatted_string
-    "#{@username} created a post \"#{@body}\" at #{@created_at}"
+    "#{@username.blue} created a post \"#{@body}\" at #{@created_at}"
   end
 
   def write_file
