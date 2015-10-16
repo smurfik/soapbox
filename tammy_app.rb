@@ -1,5 +1,5 @@
 require_relative 'bubble'
-
+time_format = "%m-%e-%y %H:%M"
 puts "What is your username?"
 username = gets.chomp.downcase
 
@@ -13,7 +13,7 @@ while true
   answers = {
     username:    username,
     body:        body,
-    created_at:  Time.now.strftime("%m-%e-%y %H:%M")
+    created_at:  Time.now.strftime(time_format)
   }
 
   b = Bubble.new(answers)
@@ -34,9 +34,10 @@ everything.each do |element|
   answers = {
     username: the_file.read,
     body: File.basename(element),
-    created_at: the_file.birthtime.strftime("%m-%e-%y %H:%M")
+    created_at: the_file.birthtime.strftime(time_format)
   }
   nb = Bubble.new(answers)
+  array_of_bubbles << nb
   puts nb.formatted_string
   the_file.close
 end

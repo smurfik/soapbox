@@ -11,13 +11,13 @@ class Bubble
   end
 
   def formatted_string
-    "#{@username.capitalize} created a post \"#{@body}\" at #{@created_at}"
+    "#{@username} created a post \"#{@body}\" at #{@created_at}"
   end
 
   def write_file
 #     File.open("/Users/tamarapop/Dropbox/SoapBox/#{@body}", 'w') do |file|
     File.open("/Users/tamarapop/code_builders/practice/trees/#{@body}", 'w') do |file|
-      file << "#{@username.capitalize}"
+      file << "#{@username}"
     end
   end
 
