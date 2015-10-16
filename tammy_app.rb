@@ -23,8 +23,11 @@ end
 
 # all_files = Dir.glob("/Users/tamarapop/Dropbox/SoapBox/*")
 all_files = Dir.glob("/Users/tamarapop/code_builders/practice/trees/*")
+
 sorted_files= all_files.sort_by { |x| File.birthtime(x) }.reverse
+
 counter = 0
+
 sorted_files.each do |element|
   the_file = File.open(element)
   answers = {
@@ -40,17 +43,15 @@ sorted_files.each do |element|
   the_file.close
 end
 
-answer = ""
-while answer != "exit"
-
+while true
   puts "Would you like to post, refresh, or exit?"
   answer = gets.chomp.downcase
   if answer == "post"
 
   elsif answer == "refresh"
-
+  elsif answer == "exit"
+    break
   else
     puts "Could you repeat that?"
   end
-
 end
