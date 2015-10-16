@@ -21,7 +21,7 @@ while true
 
 end
 
-# everything = Dir.glob("/Users/tamarapop/Dropbox/SoapBox/*")
+# all_files = Dir.glob("/Users/tamarapop/Dropbox/SoapBox/*")
 all_files = Dir.glob("/Users/tamarapop/code_builders/practice/trees/*")
 sorted_files= all_files.sort_by { |x| File.birthtime(x) }.reverse
 counter = 0
@@ -33,7 +33,7 @@ sorted_files.each do |element|
     created_at: the_file.birthtime.strftime(time_format)
   }
   nb = Bubble.new(answers)
-  if counter <= 10
+  if counter < 10
     puts nb.formatted_string
     counter += 1
   end
