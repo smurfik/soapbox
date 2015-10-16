@@ -1,12 +1,12 @@
 require_relative 'bubble'
 time_format = "%m-%e-%y %H:%M"
-puts "What is your username?"
+puts "What is your username? type exit or done to see the feed"
 
 username = gets.chomp.downcase
 
 while true
   break if username == "exit" || username == "done"
-  puts "What would you like to post? type exit or done to exit"
+  puts "What would you like to post? type exit or done to see the feed"
   body = gets.chomp
   break if body == "exit" || body == "done"
 
@@ -38,4 +38,19 @@ sorted_files.each do |element|
     counter += 1
   end
   the_file.close
+end
+
+answer = ""
+while answer != "exit"
+
+  puts "Would you like to post, refresh, or exit?"
+  answer = gets.chomp.downcase
+  if answer == "post"
+
+  elsif answer == "refresh"
+
+  else
+    puts "Could you repeat that?"
+  end
+
 end
