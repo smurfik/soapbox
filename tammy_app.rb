@@ -1,11 +1,11 @@
 require_relative 'bubble'
 time_format = "%m-%e-%y %H:%M"
 puts "What is your username?"
+
 username = gets.chomp.downcase
 
-array_of_bubbles = []
-
 while true
+  break if username == "exit" || username == "done"
   puts "What would you like to post? type exit or done to exit"
   body = gets.chomp
   break if body == "exit" || body == "done"
@@ -17,19 +17,15 @@ while true
   }
 
   b = Bubble.new(answers)
+  b.write_file
 
-  array_of_bubbles << b
-
-  array_of_bubbles.each do |object|
-    puts object.formatted_string
-    object.write_file
-  end
 end
 
 # everything = Dir.glob("/Users/tamarapop/Dropbox/SoapBox/*")
 everything = Dir.glob("/Users/tamarapop/code_builders/practice/trees/*")
+sorted_everything = everything.sort_by { |x| File.birthtime(x) }.reverse
 
-everything.each do |element|
+sorted_everything.each do |element|
   the_file = File.open(element)
   answers = {
     username: the_file.read,
@@ -37,7 +33,6 @@ everything.each do |element|
     created_at: the_file.birthtime.strftime(time_format)
   }
   nb = Bubble.new(answers)
-  array_of_bubbles << nb
   puts nb.formatted_string
   the_file.close
 end
