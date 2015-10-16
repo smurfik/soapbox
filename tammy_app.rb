@@ -24,11 +24,10 @@ end
 # all_files = Dir.glob("/Users/tamarapop/Dropbox/SoapBox/*")
 all_files = Dir.glob("/Users/tamarapop/code_builders/practice/trees/*")
 
-sorted_files= all_files.sort_by { |x| File.birthtime(x) }.reverse
+sorted_files = all_files.sort_by { |x| File.birthtime(x) }.reverse
 
-counter = 0
 
-sorted_files.each do |element|
+sorted_files.first(10).each do |element|
   the_file = File.open(element)
   answers = {
     username: the_file.read,
@@ -36,21 +35,19 @@ sorted_files.each do |element|
     created_at: the_file.birthtime.strftime(time_format)
   }
   nb = Bubble.new(answers)
-  if counter < 10
-    puts nb.formatted_string
-    counter += 1
-  end
+  puts nb.formatted_string
   the_file.close
 end
 
 while true
   puts "Would you like to post, refresh, or exit?"
   answer = gets.chomp.downcase
+  break if answer == "exit"
+
   if answer == "post"
 
   elsif answer == "refresh"
-  elsif answer == "exit"
-    break
+
   else
     puts "Could you repeat that?"
   end
