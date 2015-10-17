@@ -28,15 +28,15 @@ sorted_files = all_files.sort_by { |x| File.birthtime(x) }.reverse
 
 
 sorted_files.first(10).each do |element|
-  the_file = File.open(element)
-  answers = {
-    username: the_file.read,
-    body: File.basename(element),
-    created_at: the_file.birthtime.strftime(time_format)
-  }
-  nb = Bubble.new(answers)
-  puts nb.formatted_string
-  the_file.close
+  File.open(element) do |the_file|
+    answers = {
+      username: the_file.read,
+      body: File.basename(element),
+      created_at: the_file.birthtime.strftime(time_format)
+    }
+    nb = Bubble.new(answers)
+    puts nb.formatted_string
+  end
 end
 
 while true
