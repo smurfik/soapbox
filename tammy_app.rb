@@ -11,8 +11,7 @@ end
 
 username = gets.chomp.downcase
 
-while true
-  break if username == "exit" || username == "done"
+until username == "exit" || username == "done"
   if username == "y"
     username = the_name
   else
